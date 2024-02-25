@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  php-exads:
+    container_name: 'php-exads'
+    restart: 'on-failure'
+    tty: true
+    build:
+      args:
+        app_debug: ${APP_DEBUG}
+        user: dockeruser #example user
+        uid: 1000
+      context: .
+    volumes:
+      - .:/src
+      - ./xdebug.ini:/usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini

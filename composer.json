@@ -1,0 +1,24 @@
+{
+    "name": "exads-exercises/php",
+    "description": "Exercises for PHP",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Mickael Marques",
+            "email": "mickaelmarques14@gmail.com"
+        }
+    ],
+    "config": {
+        "sort-packages": true,
+        "optimize-autoloader": true,
+        "preferred-install": "dist"
+    },
+    "autoload": {
+        "psr-4": {
+            "ExadsExercises\\": "src/"
+        }
+    },
+    "require": {
+        "symfony/console": "^7.0"
+    }
+}
