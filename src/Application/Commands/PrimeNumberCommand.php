@@ -2,8 +2,7 @@
 
 namespace ExadsExercises\Application\Commands;
 
-use ExadsExercises\Domain\Multiple\IntegerGenerator;
-use ExadsExercises\Domain\Multiple\NumberGenerator;
+use ExadsExercises\Domain\PrimeNumber\NumberIterator;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
@@ -14,7 +13,7 @@ use Symfony\Component\Console\Output\OutputInterface;
  * 
  * Command to run exercise 1. Prime numbers
  */
-class PrimeNumberCommand extends Command 
+class PrimeNumberCommand extends Command
 {
     const START_ARG = 'start';
     const END_ARG = 'end';
@@ -30,7 +29,7 @@ class PrimeNumberCommand extends Command
     /**
      * @var array $alias of command
      */
-    protected static $alias = ['run:exercise-1','run:1'];
+    protected static $alias = ['run:exercise-1', 'run:1'];
 
     /**
      * Configure command
@@ -44,8 +43,8 @@ class PrimeNumberCommand extends Command
             ->setDescription(self::DESCRIPTION)
             ->setHelp(self::HELP)
             ->setAliases(self::$alias)
-            ->addArgument(self::START_ARG, InputArgument::REQUIRED, 'Start Number')
-            ->addArgument(self::END_ARG, InputArgument::REQUIRED, 'End Number');
+            ->addArgument(self::START_ARG, InputArgument::OPTIONAL, 'Start Number', 1)
+            ->addArgument(self::END_ARG, InputArgument::OPTIONAL, 'End Number', 100);
     }
 
     /**
@@ -59,10 +58,10 @@ class PrimeNumberCommand extends Command
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
         // Instantiate number range.
-        $generator = new NumberGenerator(intval($input->getArgument(self::START_ARG)),intval($input->getArgument(self::END_ARG)));
-         foreach ($generator->fetch() as $number){
+        $generator = new NumberIterator(intval($input->getArgument(self::START_ARG)), intval($input->getArgument(self::END_ARG)));
+        foreach ($generator->fetch() as $number) {
             $output->writeln($number->output());
-         }
+        }
 
         $output->writeln('Your command executed successfully.');
 

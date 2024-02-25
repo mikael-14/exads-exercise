@@ -1,6 +1,6 @@
 {
     "name": "exads-exercises/php",
-    "description": "Exercises for PHP",
+    "description": "Exercises PHP",
     "type": "project",
     "authors": [
         {
@@ -17,6 +17,13 @@
         "psr-4": {
             "ExadsExercises\\": "src/"
         }
+    },
+    "scripts": {
+        "clear-cache-command": [
+            "composer clearcache",
+            "composer dump-autoload"
+        ],
+        "description": "Run to dumping autoload and clearing cache"
     },
     "require": {
         "symfony/console": "^7.0"

@@ -1,6 +1,6 @@
 <?php
 
-namespace ExadsExercises\Domain\Multiple\Exceptions;
+namespace ExadsExercises\Domain\PrimeNumber\Exceptions;
 
 use InvalidArgumentException;
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace ExadsExercises\Presentation\Console\Number;
+namespace ExadsExercises\Presentation\Console\PrimeNumber;
 
 use ExadsExercises\Presentation\Console\InterfaceOutput;
 
@@ -21,6 +21,6 @@ class Prime implements InterfaceOutput
 
     public function output()
     {
-        return $this->number . ' [PRIME]';
+        return $this->number . ': [PRIME]';
     }
 }

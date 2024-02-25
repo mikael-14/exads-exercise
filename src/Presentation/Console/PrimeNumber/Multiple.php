@@ -1,6 +1,6 @@
 <?php
 
-namespace ExadsExercises\Presentation\Console\Number;
+namespace ExadsExercises\Presentation\Console\PrimeNumber;
 
 use ExadsExercises\Presentation\Console\InterfaceOutput;
 
@@ -26,6 +26,6 @@ class Multiple implements InterfaceOutput
 
     public function output()
     {
-        return $this->number . ' [' . implode(', ', $this->multiples) . ']';
+        return $this->number . ': [' . implode(', ', $this->multiples) . ']';
     }
 }

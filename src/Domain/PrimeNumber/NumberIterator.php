@@ -1,17 +1,21 @@
 <?php
 
-namespace ExadsExercises\Domain\Multiple;
+namespace ExadsExercises\Domain\PrimeNumber;
 
-use ExadsExercises\Domain\Common\Arr;
-use ExadsExercises\Domain\Multiple\Exceptions\InvalidEndValueException;
-use ExadsExercises\Domain\Multiple\Exceptions\InvalidStartValueException;
-use ExadsExercises\Presentation\Console\Number\Multiple;
-use ExadsExercises\Presentation\Console\Number\Prime;
+use ExadsExercises\Domain\PrimeNumber\Exceptions\InvalidEndValueException;
+use ExadsExercises\Domain\PrimeNumber\Exceptions\InvalidStartValueException;
+use ExadsExercises\Presentation\Console\PrimeNumber\Multiple;
+use ExadsExercises\Presentation\Console\PrimeNumber\Prime;
 
 /**
- * Domain for generate array of integers
+ * Domain for iterate between numbers
+ * 
+ * 1. Prime Numbers
+ * Write a PHP script that prints all integer values from 1 to 100.
+ * Beside each number, print the numbers it is a multiple of (inside brackets and comma-separated). If
+ * only multiple of itself then print “[PRIME]”.
  */
-class NumberGenerator
+class NumberIterator
 {
     /**
      * @var int start of array
@@ -36,13 +40,6 @@ class NumberGenerator
         $this->end = $end;
     }
 
-    /**
-     * @return array of integers
-     */
-    public function generate(): array
-    {
-        return Arr::generateRandomInteger($this->start, $this->end);
-    }
 
     /**
      * @return 
