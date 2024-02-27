@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "78b0da13fd3443c0702ca5e60c79a272",
+    "content-hash": "46cef4cabd9dbdbac154e254880349aa",
     "packages": [
         {
             "name": "doctrine/collections",
@@ -761,6 +761,49 @@
                 }
             ],
             "time": "2023-05-17T18:32:04+00:00"
+        },
+        {
+            "name": "exads/ab-test-data",
+            "version": "1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/EXADS/ab-test-data.git",
+                "reference": "06d1ad45d64538c000ad44c14d0bd191adf37ba8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/EXADS/ab-test-data/zipball/06d1ad45d64538c000ad44c14d0bd191adf37ba8",
+                "reference": "06d1ad45d64538c000ad44c14d0bd191adf37ba8",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "php": ">=7.4"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^8.5"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Exads\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-3.0-or-later"
+            ],
+            "description": "A class that delivers a structured data for A/B Testing",
+            "keywords": [
+                "AB",
+                "exads",
+                "php",
+                "test"
+            ],
+            "support": {
+                "source": "https://github.com/EXADS/ab-test-data/tree/1.0"
+            },
+            "time": "2022-01-17T12:00:16+00:00"
         },
         {
             "name": "psr/cache",

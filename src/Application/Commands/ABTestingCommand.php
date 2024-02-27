@@ -2,7 +2,9 @@
 
 namespace ExadsExercises\Application\Commands;
 
+use ExadsExercises\Domain\ABTesting\PromotionalDesign;
 use Symfony\Component\Console\Command\Command;
+use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
@@ -13,8 +15,11 @@ use Symfony\Component\Console\Output\OutputInterface;
  */
 class ABTestingCommand extends Command
 {
+    const PROMOTION = 'promotionId';
     const DESCRIPTION = '4. A/B Testing';
-    const HELP = 'Exads would like to A/B test some promotional designs to see which provides the best conversion rate.
+    const HELP = '
+
+    Exads would like to A/B test some promotional designs to see which provides the best conversion rate.
 Write a snippet of PHP code that redirects end users to the different designs based on the data provided by this library: packagist.org/exads/ab-test-data
 The data will be structured as follows:
     “promotion” => [
@@ -48,7 +53,8 @@ The code needs to be object-oriented and scalable. The number of designs per pro
             ->setName(self::$defaultName)
             ->setDescription(self::DESCRIPTION)
             ->setHelp(self::HELP)
-            ->setAliases(self::$alias);
+            ->setAliases(self::$alias)
+            ->addArgument(self::PROMOTION, InputArgument::REQUIRED, 'Promotion id');
     }
 
     /**
@@ -61,8 +67,11 @@ The code needs to be object-oriented and scalable. The number of designs per pro
      */
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
-
-        $output->writeln('Your command executed successfully.\n');
+        $promotion = new PromotionalDesign(intval($input->getArgument(self::PROMOTION)));
+        $output->writeln('Promotion: ' . $promotion->getName());
+        $design = $promotion->randomDesign();
+        $output->writeln('<info>Design ID:'.$design->getId().', Name: '.$design->getName().', Split Percent: '.$design->getSplitPercent().'</info>');
+        $output->writeln('Your command executed successfully.');
 
         return Command::SUCCESS;
     }
