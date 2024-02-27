@@ -1,3 +1,4 @@
 vendor/
-
+var/mysql/data/
+var/mysql/logs/
 .env

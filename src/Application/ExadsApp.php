@@ -5,10 +5,9 @@ namespace ExadsExercises\Application;
 use Exception;
 use ExadsExercises\Application\Exceptions\InvalidCommandException;
 use ExadsExercises\Application\Exceptions\MissingCommandException;
+use ExadsExercises\Infrastructure\Config;
 use Symfony\Component\Console\Application;
 use Symfony\Component\Console\Command\Command;
-
-use function PHPSTORM_META\type;
 
 /**
  * ExadsApp class for running the command
@@ -66,12 +65,10 @@ class ExadsApp
     }
 
     /**
-     * Load application dependencies
-     * NOTE: This should be done using DI Container (see README.md file).
+     * Load env file
      */
     private function loadDependencies()
     {
-        // Configuration dependency
-        // Config::loadFrom($this->root);
+        Config::loadConfig($this->root);
     }
 }

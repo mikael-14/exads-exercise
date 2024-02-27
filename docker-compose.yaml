@@ -5,6 +5,8 @@ services:
     container_name: 'php-exads'
     restart: 'on-failure'
     tty: true
+    links:
+      - db-exads
     build:
       args:
         app_debug: ${APP_DEBUG}
@@ -14,3 +16,21 @@ services:
     volumes:
       - .:/src
       - ./xdebug.ini:/usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
+  
+  db-exads:
+    image: mysql:8.0
+    container_name: db-exads
+    restart: unless-stopped
+    environment:
+      MYSQL_DATABASE: ${DB_DATABASE}
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
+      MYSQL_PASSWORD: ${DB_PASSWORD}
+      MYSQL_USER: ${DB_USER}
+      SERVICE_TAGS: dev
+      SERVICE_NAME: mysql
+    ports:
+      - 33306:3306
+    volumes:
+      - ./schema/:/docker-entrypoint-initdb.d
+      - ./var/mysql/data:/var/lib/mysql
+      - ./var/mysql/logs:/var/log/mysql
