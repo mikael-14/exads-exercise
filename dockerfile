@@ -4,7 +4,7 @@ FROM php:8.2-cli
 # Arguments defined in docker-compose.yml
 ARG user
 ARG uid
-ARG app_debug
+# ARG app_debug
 
 # Set the working directory to /app
 WORKDIR /src
@@ -24,10 +24,10 @@ RUN apt-get install -y git
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
 # Enable xdebug if APP_DEBUG is true on .env
-RUN if [ $app_debug = "true" ] ; then \
-    pecl install xdebug \
-    && docker-php-ext-enable xdebug; \
-fi ;
+# RUN if [ $app_debug = "true" ] ; then \
+#     pecl install xdebug \
+#     && docker-php-ext-enable xdebug; \
+# fi ;
 
 # Create system user to run Composer Commands
 RUN useradd -G www-data,root -u $uid -d /home/$user $user

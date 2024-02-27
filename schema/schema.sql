@@ -9,7 +9,7 @@ CREATE TABLE IF NOT EXISTS `tv_series` (
   `channel` varchar(100) DEFAULT NULL,
   `gender` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 INSERT IGNORE INTO `tv_series` (`id`, `title`, `channel`, `gender`) VALUES
 (1, 'The Boys', 'Prime', 'Drama'),
@@ -24,5 +24,5 @@ CREATE TABLE IF NOT EXISTS `tv_series_intervals` (
   `show_time` varchar(100) DEFAULT NULL,
   KEY `tv_series_intervals_FK` (`id_tv_series`),
   CONSTRAINT `tv_series_intervals_FK` FOREIGN KEY (`id_tv_series`) REFERENCES `tv_series` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 

@@ -19,10 +19,22 @@ Up the containers
 ```
 docker-compose up -d
 ```
-## Step 3: Create database (no container version)
+## Step 3: Install dependencies
+
+On docker use the following command
+```
+docker-compose exec php-exads composer install
+```
+Or on Local environment use the following command
+```
+composer install
+```
+
+## Step 4: Create database (no container version)
+
 ***If you are running in docker container skip this step***
 
-Inside [./schema/schema.sql](./schema/schema.sql) is the script to create the database and populate them. 
+Inside [./schema/schema.sql](./schema/schema.sql) is the script to create the database, tables and populate it. 
 
 # Run the commands
 
