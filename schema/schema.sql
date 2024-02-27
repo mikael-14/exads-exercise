@@ -11,6 +11,10 @@ CREATE TABLE IF NOT EXISTS `tv_series` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8;
 
+INSERT IGNORE INTO `tv_series` (`id`, `title`, `channel`, `gender`) VALUES
+(1, 'The Boys', 'Prime', 'Drama'),
+(2, 'Game of Thrones', 'HBO', 'Adventure'),
+(3, 'DareDevil', 'Netflix', 'Action');
 
 -- exads.tv_series_intervals definition
 
